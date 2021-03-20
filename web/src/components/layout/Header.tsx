@@ -18,7 +18,11 @@ export default function Header() {
   function onSubmit(e: FormEvent) {
     e.preventDefault();
 
-    router.push(`/search/movie?query=${search}`)
+    const newPath = router.pathname === "/"
+      ? `/search/movie?query=${search}`
+      : `${router.pathname}?query=${search}`
+
+    router.push(newPath)
   }
 
   return (

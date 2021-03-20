@@ -7,7 +7,7 @@ const SearchFrame: React.FC = ({ children }) => {
       <Box w="300px">
         <SearchTypeMenu />
       </Box>
-      <Flex maxW="900px" ml="5" flexWrap="wrap" alignItems="center">
+      <Flex maxW="900px" ml="5" flexWrap="wrap" alignItems="center" justifyContent="center" w="100%" pb="5">
         {children}
       </Flex>
     </Flex>

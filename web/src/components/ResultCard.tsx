@@ -24,6 +24,7 @@ const ResultCard: React.FC<Props> = ({ id, title, img, watchOn }) => {
               </Text>
               <Flex mt="2">
                 { [...watchOn]?.sort((a, b) => a.display_priority > b.display_priority ? 1 : -1)
+                  .slice(0, 3)
                   .map(item => (
                   <StreamingServiceLogo
                     size="40px"

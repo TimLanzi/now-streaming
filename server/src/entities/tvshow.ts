@@ -1,6 +1,7 @@
 import { Field, Int, ObjectType } from "type-graphql";
 import { Genre } from "./genre";
 import { TVSeason } from "./tvseason";
+import { WatchProviderOptions } from "./watchprovideroptions";
 
 @ObjectType("TVShow")
 export class TVShow {
@@ -45,4 +46,7 @@ export class TVShow {
 
   @Field({ nullable: true })
   type?: string;
+
+  @Field(() => WatchProviderOptions, { nullable: true })
+  watchOptions?: WatchProviderOptions;
 }

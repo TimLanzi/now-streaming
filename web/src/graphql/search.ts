@@ -16,6 +16,12 @@ const MOVIE_SEARCH = gql`
             display_priority
             provider_id
           }
+          ads {
+            provider_name
+            logo_path
+            display_priority
+            provider_id
+          }
         }
       }
     }
@@ -26,6 +32,43 @@ export const useMovieSearch = (query: string) => {
   return useQuery(MOVIE_SEARCH, {
     variables: {
       input: { query }
+    },
+  });
+}
+
+
+
+const TV_SEARCH = gql`
+  query($input: TVSearchInput!) {
+    tvShowSearch(input: $input) {
+      results {
+        id
+        name
+        first_air_date
+        poster_path
+        watchOptions {
+          flatrate {
+            provider_name
+            logo_path
+            display_priority
+            provider_id
+          }
+          ads {
+            provider_name
+            logo_path
+            display_priority
+            provider_id
+          }
+        }
+      }
+    }
+  }
+`
+
+export const useTvSearch = (query: string) => {
+  return useQuery(TV_SEARCH, {
+    variables: {
+      input: { query },
     },
   });
 }
