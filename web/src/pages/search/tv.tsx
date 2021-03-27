@@ -1,7 +1,6 @@
 import { CircularProgress, Box } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import Layout from "../../components/layout";
-import ResultCard from "../../components/ResultCard";
 import ResultGrid from "../../components/ResultGrid";
 import SearchFrame from "../../components/SearchFrame";
 import { useTvSearch } from "../../graphql/search";
@@ -18,19 +17,8 @@ export default function MovieSearchPage() {
           ? <Box justifyContent="center">
               <CircularProgress isIndeterminate color="purple.500" />
             </Box>
-        : <ResultGrid results={data?.tvShowSearch.results} />
-        // data?.tvShowSearch.results.map(item => (
-        //   <ResultCard
-        //     key={item.id}
-        //     id={item.id}
-        //     title={item.name}
-        //     img={`https://www.themoviedb.org/t/p/w300_and_h450_bestv2${item.poster_path}`}
-        //     watchOn={item.watchOptions?.ads
-        //       ? item.watchOptions?.flatrate.concat(item.watchOptions?.ads)
-        //       : item.watchOptions?.flatrate
-        //     }
-        //   />
-        // ))
+            
+          : <ResultGrid type="tv" results={data?.tvShowSearch.results} />
         }
       </SearchFrame>
     </Layout>

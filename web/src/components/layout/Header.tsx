@@ -30,7 +30,6 @@ export default function Header() {
       <Flex flexWrap="wrap" alignItems="center" justifyContent="center" maxW="1200px" height="100%" m="auto" h={{ base: "auto",  lg: "5em"}}>
         <NextLink href="/">
           <Heading d="flex" as="h4" fontSize="lg" my={{ base: "5",  lg: "auto" }} fontWeight="medium" px="10" cursor="pointer">
-            {/* TODO logo */}
             <Icon as={GoPlay} color="purple.500" w='35px' h='35px' mr="3" verticalAlign="middle" />
             <Text as="span" verticalAlign="middle" lineHeight="2em">
               Now Streaming
@@ -48,6 +47,7 @@ export default function Header() {
           </form>
 
           <HStack ml="10" d="flex">
+            {/* TODO: final github link */}
             <Link href="http://github.com">
               <Icon w='30px' h='30px' as={GoMarkGithub} />
             </Link>
