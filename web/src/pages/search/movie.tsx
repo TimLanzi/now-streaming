@@ -9,10 +9,10 @@ export default function MovieSearchPage() {
   const router = useRouter();
 
   const { loading, error, data } = useMovieSearch(router.query.query as string);
-  
+
   return (
     <Layout>
-      <SearchFrame>
+      <SearchFrame movieResults={data?.movieSearch.total_results} tvResults={data?.tvShowSearch.total_results}>
         { loading
           ? <Box justifyContent="center">
               <CircularProgress isIndeterminate color="purple.500" />

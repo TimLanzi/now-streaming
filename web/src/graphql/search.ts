@@ -1,8 +1,11 @@
 import { gql, useQuery } from "@apollo/client";
 
 const MOVIE_SEARCH = gql`
-  query($input: MovieSearchInput!) {
+  query($input: SearchInput!) {
     movieSearch(input: $input) {
+      page
+      total_results
+      total_pages
       results {
         id
         title
@@ -25,6 +28,10 @@ const MOVIE_SEARCH = gql`
         }
       }
     }
+    
+    tvShowSearch(input: $input) {
+      total_results
+    }
   }
 `
 
@@ -39,8 +46,11 @@ export const useMovieSearch = (query: string) => {
 
 
 const TV_SEARCH = gql`
-  query($input: TVSearchInput!) {
+  query($input: SearchInput!) {
     tvShowSearch(input: $input) {
+      page
+      total_results
+      total_pages
       results {
         id
         name
@@ -61,6 +71,10 @@ const TV_SEARCH = gql`
           }
         }
       }
+    }
+    
+    movieSearch(input: $input) {
+      total_results
     }
   }
 `

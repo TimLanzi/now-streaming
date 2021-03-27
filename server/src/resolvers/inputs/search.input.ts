@@ -1,7 +1,7 @@
 import { Field, InputType, Int } from "type-graphql";
 
-@InputType("TVSearchInput")
-export class TVSearchInput {
+@InputType("SearchInput")
+export class SearchInput {
   @Field()
   query!: string;
 
@@ -10,4 +10,7 @@ export class TVSearchInput {
 
   @Field({ nullable: true, defaultValue: "en-US" })
   language?: string;
+
+  @Field({ nullable: true })
+  region?: string;
 }

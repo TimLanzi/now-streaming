@@ -12,12 +12,11 @@ export default function MovieSearchPage() {
   
   return (
     <Layout>
-      <SearchFrame>
+      <SearchFrame movieResults={data?.movieSearch.total_results} tvResults={data?.tvShowSearch.total_results}>
         { loading
           ? <Box justifyContent="center">
               <CircularProgress isIndeterminate color="purple.500" />
             </Box>
-        // https://www.themoviedb.org/t/p/w300_and_h450_bestv2/lJA2RCMfsWoskqlQhXPSLFQGXEJ.jpg
         : data?.tvShowSearch.results.map(item => (
           <ResultCard
             key={item.id}
@@ -28,7 +27,6 @@ export default function MovieSearchPage() {
               ? item.watchOptions?.flatrate.concat(item.watchOptions?.ads)
               : item.watchOptions?.flatrate
             }
-            // img="https://www.themoviedb.org/t/p/w300_and_h450_bestv2/ziEuG1essDuWuC5lpWUaw1uXY2O.jpg"
           />
         ))}
       </SearchFrame>

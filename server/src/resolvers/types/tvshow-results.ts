@@ -1,5 +1,5 @@
 
-import { Field, ObjectType } from "type-graphql";
+import { Field, Int, ObjectType } from "type-graphql";
 import { TVShow } from "../../entities/tvshow";
 import { BaseResults } from "./search-results-base";
 
@@ -7,4 +7,13 @@ import { BaseResults } from "./search-results-base";
 export class TVShowResults extends BaseResults {
   @Field(() => [TVShow])
   results?: TVShow[];
+
+  @Field(() => Int)
+  page?: number;
+
+  @Field(() => Int)
+  total_results?: number;
+
+  @Field(() => Int)
+  total_pages?: number;
 }

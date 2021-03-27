@@ -1,8 +1,13 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { Stack, Box } from "@chakra-ui/react";
+import { Stack, Box, Badge } from "@chakra-ui/react";
 
-export default function SearchTypeMenu() {
+interface Props {
+  movieResults?: number;
+  tvResults?: number;
+}
+
+const SearchTypeMenu: React.FC<Props> = ({ movieResults, tvResults }) => {
   const router = useRouter();
 
   return (
@@ -10,14 +15,26 @@ export default function SearchTypeMenu() {
       <Link href={`/search/movie?query=${router.query.query}`}>
         <Box as="li" d="flex" p="1em" fontWeight="medium" cursor="pointer" _hover={{ backgroundColor: "#fcfcfc"}}>
           Movies
+          { movieResults &&
+            <Badge pos="absolute" right="5" colorScheme="purple" textAlign="center" h="20px" w="20px" borderRadius="500px" variant="solid">
+              {movieResults}
+            </Badge>
+          }
         </Box>
       </Link>
       <hr style={{ margin: 0 }} />
       <Link href={`/search/tv?query=${router.query.query}`}>
         <Box as="li" d="flex" p="1em" fontWeight="medium" cursor="pointer" _hover={{ backgroundColor: "#fcfcfc"}}>
           TV Shows
+          { tvResults &&
+            <Badge pos="absolute" right="5" colorScheme="purple" textAlign="center" h="20px" w="20px" borderRadius="500px" variant="solid">
+              {tvResults}
+            </Badge>
+          }
         </Box>
       </Link>
     </Stack>
   )
 }
+
+export default SearchTypeMenu;
