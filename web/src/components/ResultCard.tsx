@@ -10,7 +10,7 @@ interface Props {
 
 const ResultCard: React.FC<Props> = ({ id, title, img, watchOn }) => {
   return (
-    <Box d="flex" flexDir="row" flexWrap="wrap" w={{ base: "100%", lg: "100%", xl: "100%", "2xl": "502px" }} borderRadius="lg" borderWidth="1px" overflow="hidden" mb="5" mr={["0", "0", "5"]}>
+    <Box d="flex" flexDir="row" flexWrap="wrap" w={{ base: "100%", lg: "100%", xl: "100%", "2xl": "502px" }} borderRadius="lg" borderWidth="1px" overflow="hidden" mb="5" mr={["0", "0", "0", "5"]}>
       <Flex justifyContent="center">
         <Image w="100%" src={img} alt={`${title} poster`} />
       </Flex>

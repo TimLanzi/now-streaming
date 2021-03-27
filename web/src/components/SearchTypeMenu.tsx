@@ -6,7 +6,7 @@ export default function SearchTypeMenu() {
   const router = useRouter();
 
   return (
-    <Stack as="ul" borderWidth="1px" d="flex" w="100%" borderRadius="5px">
+    <Stack as="ul" d="flex" w="100%" pos={{ lg: "sticky" }} top={{ lg: "7.5em" }} borderWidth="1px" borderRadius="5px">
       <Link href={`/search/movie?query=${router.query.query}`}>
         <Box as="li" d="flex" p="1em" fontWeight="medium" cursor="pointer" _hover={{ backgroundColor: "#fcfcfc"}}>
           Movies
