@@ -10,10 +10,11 @@ interface Props {
 
 const ResultCard: React.FC<Props> = ({ id, title, img, watchOn }) => {
   return (
-    <Box maxW="280px" maxH={["auto", "600px"]} h={["auto", "100%"]} borderRadius="lg" borderWidth="1px" overflow="hidden" mb="5" mr="5">
-      <Image w="100%" src={img} alt={`${title} poster`} />
-
-      <Box p="6">
+    <Box d="flex" flexDir="row" flexWrap="wrap" w={{ base: "100%", lg: "100%", xl: "100%", "2xl": "502px" }} borderRadius="lg" borderWidth="1px" overflow="hidden" mb="5" mr={["0", "0", "5"]}>
+      <Flex justifyContent="center">
+        <Image w="100%" src={img} alt={`${title} poster`} />
+      </Flex>
+      <Box p="6" maxW="200px">
         <Text fontSize="lg" fontWeight="medium" mb="3">
           {title}
         </Text>
@@ -38,7 +39,7 @@ const ResultCard: React.FC<Props> = ({ id, title, img, watchOn }) => {
         }
       </Box>
     </Box>
-  )
+  );
 }
 
 export default ResultCard
