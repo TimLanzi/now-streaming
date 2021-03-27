@@ -16,7 +16,8 @@ const ResultGrid: React.FC<Props> = ({ type, data }) => {
             key={item.id}
             type={type}
             id={item.id}
-            title={item.name}
+            title={type === "movie" ? item.title : item.name}
+            date={type === "movie" ? item.release_date : item.first_air_date}
             img={`https://www.themoviedb.org/t/p/w300_and_h450_bestv2${item.poster_path}`}
             watchOn={item.watchOptions?.ads
               ? (item.watchOptions?.flatrate || []).concat(item.watchOptions?.ads)

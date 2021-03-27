@@ -4,12 +4,13 @@ import StreamingServiceLogo from "./StreamingServiceLogo";
 interface Props {
   id: string;
   type: string;
+  date: string;
   img: string;
   title: string;
   watchOn?: any[];
 }
 
-const ResultCard: React.FC<Props> = ({ id, type, title, img, watchOn }) => {
+const ResultCard: React.FC<Props> = ({ id, date, type, title, img, watchOn }) => {
   return (
     <Link href={`https://www.themoviedb.org/${type}/${id}`} target="_blank" rel="noreferrer noopener" mb="5" mr={["0", "0", "0", "5"]} borderRadius="lg">
       <Box d="flex" flexDir="row" flexWrap="wrap" borderWidth="1px" borderRadius="lg">
@@ -19,6 +20,9 @@ const ResultCard: React.FC<Props> = ({ id, type, title, img, watchOn }) => {
         <Box p="6" w="50%">
           <Text fontSize="lg" fontWeight="medium" mb="3">
             {title}
+          </Text>
+          <Text fontSize="md" color="gray.600" mb="2">
+            {date}
           </Text>
           { watchOn
             ? <>
