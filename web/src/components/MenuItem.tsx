@@ -7,7 +7,17 @@ interface Props {
 
 const MenuItem: React.FC<Props> = ({ children, href }) => {
   const ITEM = (
-    <Box as="li" d="flex" p="1em" fontWeight="medium" cursor="pointer" _hover={{ backgroundColor: "#fcfcfc"}} _notLast={{ borderBottom: "1px solid #E2E8F0"}} _notFirst={{ marginTop: 0 }}>
+    <Box
+      as="li"
+      pos="relative"
+      d="flex"
+      p="1em"
+      fontWeight="medium"
+      cursor="pointer"
+      _hover={{ backgroundColor: "#fcfcfc"}}
+      _notLast={{ borderBottom: "1px solid #E2E8F0"}}
+      _notFirst={{ marginTop: 0 }}
+    >
       {children}
     </Box>
   )

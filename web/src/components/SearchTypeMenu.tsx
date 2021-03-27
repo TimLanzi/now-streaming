@@ -11,7 +11,7 @@ const SearchTypeMenu: React.FC<Props> = ({ movieResults, tvResults }) => {
   const router = useRouter();
 
   return (
-    <Stack as="ul" d="flex" w="100%" pos={{ lg: "sticky" }} top={{ lg: "7.5em" }} borderWidth="1px" borderRadius="5px">
+    <Stack as="ul" d="flex" w="100%" borderWidth="1px" borderRadius="5px" bgColor="white">
       <MenuItem href={`/search/movie?query=${router.query.query}`}>
         Movies
         { !!movieResults &&

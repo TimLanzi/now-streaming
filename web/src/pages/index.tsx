@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import { Heading, Link, Text, Code, Flex, Box } from "@chakra-ui/react"
 import styles from '../styles/Home.module.scss'
-import Layout from '../components/layout'
+import Layout from '../components/Layout'
 
 // export default function HomePage() {
 

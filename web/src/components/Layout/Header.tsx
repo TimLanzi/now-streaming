@@ -26,7 +26,7 @@ export default function Header() {
   }
 
   return (
-    <Box bgColor="#333" color="white" as="header" w="100%" pos="sticky" top="0">
+    <Box bgColor="#333" color="white" as="header" w="100%" pos="sticky" top="0" zIndex="5">
       <Flex flexWrap="wrap" alignItems="center" justifyContent="center" maxW="1200px" height="100%" m="auto" h={{ base: "auto",  lg: "5em"}}>
         <NextLink href="/">
           <Heading d="flex" as="h4" fontSize="lg" my={{ base: "5",  lg: "auto" }} fontWeight="medium" px="10" cursor="pointer">

@@ -1,6 +1,6 @@
 import { CircularProgress, Box } from "@chakra-ui/react";
 import { useRouter } from "next/router";
-import Layout from "../../components/layout";
+import Layout from "../../components/Layout";
 import ResultGrid from "../../components/ResultGrid";
 import SearchFrame from "../../components/SearchFrame";
 import { useMovieSearch } from "../../graphql/search";
