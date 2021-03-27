@@ -8,7 +8,7 @@ import { useMovieSearch } from "../../graphql/search";
 export default function MovieSearchPage() {
   const router = useRouter();
 
-  const { loading, error, data } = useMovieSearch(router.query.query as string);
+  const { loading, error, data } = useMovieSearch(router.query.query as string, router.query.page as string);
 
   return (
     <Layout>
@@ -18,7 +18,7 @@ export default function MovieSearchPage() {
               <CircularProgress isIndeterminate color="purple.500" />
             </Box>
         
-          : <ResultGrid type="movie" results={data?.movieSearch.results} />
+          : <ResultGrid type="movie" data={data?.movieSearch} />
         }
       </SearchFrame>
     </Layout>

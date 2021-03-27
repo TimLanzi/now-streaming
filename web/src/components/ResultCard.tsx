@@ -14,7 +14,7 @@ const ResultCard: React.FC<Props> = ({ id, type, title, img, watchOn }) => {
     <Link href={`https://www.themoviedb.org/${type}/${id}`} target="_blank" rel="noreferrer noopener">
       <Box d="flex" flexDir="row" flexWrap="wrap"  borderRadius="lg" borderWidth="1px" mb="5" mr={["0", "0", "0", "5"]}>
         <Flex maxW="50%">
-          <Image src={img} alt={`${title} poster`} />
+          <Image borderTopLeftRadius="lg" borderBottomLeftRadius="lg" src={img} alt={`${title} poster`} />
         </Flex>
         <Box p="6" w="50%">
           <Text fontSize="lg" fontWeight="medium" mb="3">
@@ -25,14 +25,14 @@ const ResultCard: React.FC<Props> = ({ id, type, title, img, watchOn }) => {
                 <Text as="span">
                   Streaming On:
                 </Text>
-                <Flex mt="2">
+                <Flex mt="2" flexWrap="wrap">
                   { [...watchOn]?.sort((a, b) => a.display_priority > b.display_priority ? 1 : -1)
-                    .slice(0, 3)
+                    // .slice(0, 3)
                     .map(item => (
                     <StreamingServiceLogo
                       size="40px"
                       img={`https://www.themoviedb.org/t/p/original${item.logo_path}`}
-                      link={"https://example.com"}
+                      // link={"https://example.com"}
                     />
                   ))}
                 </Flex>

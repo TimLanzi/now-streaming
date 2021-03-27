@@ -1,15 +1,17 @@
 import { Grid } from "@chakra-ui/layout";
+import Pagination from "./Pagination";
 import ResultCard from "./ResultCard";
 
 interface Props {
   type: string;
-  results?: any[];
+  data?: any;
 }
 
-const ResultGrid: React.FC<Props> = ({ type, results }) => {
+const ResultGrid: React.FC<Props> = ({ type, data }) => {
   return (
+    <>
     <Grid templateColumns={{ lg: "repeat(1, 1fr)", xl: "repeat(2, 1fr)" }} w="100%" gap={4}>
-      { results?.map(item => (
+      { data?.results.map((item: any) => (
           <ResultCard
             key={item.id}
             type={type}
@@ -24,6 +26,11 @@ const ResultGrid: React.FC<Props> = ({ type, results }) => {
           />
         ))}
     </Grid>
+    
+    { data?.total_pages > 1 &&
+      <Pagination activePage={data.page} totalPages={data.total_pages} />
+    }
+    </>
   )
 }
 

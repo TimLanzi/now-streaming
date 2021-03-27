@@ -1,4 +1,4 @@
-import { gql, useQuery } from "@apollo/client";
+import { gql, useLazyQuery, useQuery } from "@apollo/client";
 
 const MOVIE_SEARCH = gql`
   query($input: SearchInput!) {
@@ -35,10 +35,15 @@ const MOVIE_SEARCH = gql`
   }
 `
 
-export const useMovieSearch = (query: string) => {
+export const useMovieSearch = (query: string, page: string) => {
+  // return useLazyQuery(MOVIE_SEARCH);
+
   return useQuery(MOVIE_SEARCH, {
     variables: {
-      input: { query }
+      input: {
+        query,
+        page: parseInt(page) || 1,
+      }
     },
   });
 }

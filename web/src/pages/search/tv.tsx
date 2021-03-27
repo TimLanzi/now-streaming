@@ -18,7 +18,7 @@ export default function MovieSearchPage() {
               <CircularProgress isIndeterminate color="purple.500" />
             </Box>
             
-          : <ResultGrid type="tv" results={data?.tvShowSearch.results} />
+          : <ResultGrid type="tv" data={data?.tvShowSearch} />
         }
       </SearchFrame>
     </Layout>
