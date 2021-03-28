@@ -1,28 +1,60 @@
-
-import { FormEvent, useEffect, useState } from "react";
+import React, { FormEvent, useEffect, useState } from "react";
 import NextLink from "next/link";
 import { useRouter } from "next/router";
-import { Flex, Box, Heading, Input, HStack, Link, Icon, Text } from "@chakra-ui/react";
+import { Flex, Box, Heading, Input, HStack, Link, Icon, Text, CircularProgress } from "@chakra-ui/react";
 import { GoMarkGithub, GoPlay } from "react-icons/go";
+import { useMultiSearch } from "../../graphql/search";
 
 
 export default function Header() {
   const router = useRouter();
+
+  /* GraphQL hooks */
+  const [multiSearch, { loading, error, data }] = useMultiSearch();
   
+  /* State hooks */
   const [search, setSearch] = useState(router.query.query as string || "");
+  const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
     setSearch(router.query.query as string || "");
   }, [router]);
 
+  /* Effect hooks */
+  useEffect(() => {
+    if (!loading) {
+      if (error) {
+        setErrorMessage(error.message);
+      } else if (data) {
+        if (data.multiSearch.results.length === 0) {
+          setErrorMessage("Your search returned no results");
+          return;
+        }
+
+        const type = data.multiSearch.results[0].media_type;
+        switch(data.multiSearch.results[0].media_type) {
+          case "movie":
+          case "tv": {
+            router.push(`/search/${type}?query=${search}`);
+            break;
+          }
+
+          default: {
+            setErrorMessage("Your search returned no results");
+            break;
+          }
+        }
+      }
+    }
+  }, [loading, error, data]);
+
   function onSubmit(e: FormEvent) {
     e.preventDefault();
 
-    const newPath = router.pathname === "/"
-      ? `/search/movie?query=${search}`
-      : `${router.pathname}?query=${search}`
-
-    router.push(newPath)
+    setErrorMessage("");
+    multiSearch({ variables: {
+      input: { query: search },
+    }});
   }
 
   return (
@@ -38,13 +70,27 @@ export default function Header() {
         </NextLink>
 
         <Box d="flex" w={["auto", "600px"]} mx="70" pb={{ base: "2em", lg: 0}}>
-          <form style={{ width: "100%" }} onSubmit={onSubmit}>
-            <Input
-              placeholder="Search"
-              value={search}
-              onChange={e => setSearch(e.target.value)}
-            />
-          </form>
+          <Box d="flex" flexDir="row" flexGrow={1} pos="relative" w="100%">
+            { loading &&
+              <CircularProgress isIndeterminate pos="absolute" right="2" top="2" color="purple.500" size="30px" />
+            }
+            <Box w="100%" textAlign="center">
+              <form style={{ width: "100%" }} onSubmit={onSubmit}>
+                <Input
+                  size="lg"
+                  isInvalid={!!errorMessage}
+                  errorBorderColor="red.300"
+                  isDisabled={loading}
+                  placeholder="Search for Movies or TV Shows"
+                  value={search}
+                  onChange={e => setSearch(e.target.value)}
+                />
+              </form>
+              { !!errorMessage &&
+                <Text color="red.300">{errorMessage}</Text>
+              }
+            </Box>
+          </Box>
 
           <HStack ml="10" d="flex">
             {/* TODO: final github link */}

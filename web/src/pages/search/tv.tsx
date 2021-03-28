@@ -8,7 +8,7 @@ import { useTvSearch } from "../../graphql/search";
 export default function MovieSearchPage() {
   const router = useRouter();
 
-  const { loading, error, data } = useTvSearch(router.query.query as string);
+  const { loading, error, data } = useTvSearch(router.query.query as string, router.query.page as string);
   
   return (
     <Layout>

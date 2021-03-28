@@ -18,6 +18,9 @@ export class TVShow {
   genres?: Genre[];
 
   @Field({ nullable: true })
+  media_type?: string;
+
+  @Field({ nullable: true })
   homepage?: string;
 
   @Field({ nullable: true })

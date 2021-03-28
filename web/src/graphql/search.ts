@@ -36,14 +36,12 @@ const MOVIE_SEARCH = gql`
 `
 
 export const useMovieSearch = (query: string, page: string) => {
-  // return useLazyQuery(MOVIE_SEARCH);
-
   return useQuery(MOVIE_SEARCH, {
     variables: {
       input: {
         query,
         page: parseInt(page) || 1,
-      }
+      },
     },
   });
 }
@@ -84,10 +82,39 @@ const TV_SEARCH = gql`
   }
 `
 
-export const useTvSearch = (query: string) => {
+export const useTvSearch = (query: string, page: string) => {
   return useQuery(TV_SEARCH, {
     variables: {
-      input: { query },
+      input: {
+        query,
+        page: parseInt(page) || 1,
+      },
     },
   });
+}
+
+
+const MULTI_SEARCH = gql`
+  query($input: SearchInput!) {
+    multiSearch(input: $input) {
+      total_results
+      results {
+        ... on Movie {
+          id
+          title
+          media_type
+        }
+        
+        ... on TVShow {
+          id
+          name
+          media_type
+        }
+      }
+    }
+  }
+`;
+
+export const useMultiSearch = () => {
+  return useLazyQuery(MULTI_SEARCH);
 }

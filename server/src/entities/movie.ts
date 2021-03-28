@@ -14,6 +14,9 @@ export class Movie {
   // belongs_to_collection?: object|null;
 
   @Field({ nullable: true })
+  media_type?: string;
+
+  @Field({ nullable: true })
   budget?: number;
 
   @Field(() => [Genre], { nullable: true })
