@@ -93,8 +93,7 @@ export default function Header() {
           </Box>
 
           <HStack ml="10" d="flex">
-            {/* TODO: final github link */}
-            <Link href="http://github.com">
+            <Link href="https://github.com/TimLanzi/now-streaming">
               <Icon w='30px' h='30px' as={GoMarkGithub} />
             </Link>
           </HStack>
