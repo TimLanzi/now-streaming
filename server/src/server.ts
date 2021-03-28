@@ -21,7 +21,7 @@ async function main() {
 
   apolloServer.applyMiddleware({ app });
 
-  app.listen(4000, () => console.log(`> App listening at http://localhost:4000`));
+  app.listen(process.env.PORT, () => console.log(`> App listening at http://localhost:${process.env.PORT}`));
 }
 
 main();
