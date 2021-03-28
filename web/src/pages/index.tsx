@@ -55,7 +55,7 @@ export default function HomePage() {
   return (
     <Layout>
       <Box
-        minH="70vh"
+        minH={{ base: "40vh", md: "70vh"}}
         p="0 0.5rem"
         d="flex"
         flexDir="column"
@@ -64,13 +64,14 @@ export default function HomePage() {
       >
         <Box
           flex={1}
+          mx={{ base: "5", lg: "0" }}
           d="flex"
           flexDir="column"
           justifyContent="center"
           alignItems="center"
           className={`${styles.animated} ${styles.animatedFadeInUp} ${styles.fadeInUp}`}
         >
-          <Heading as="h1" size="2xl" mb="6">
+          <Heading as="h1" size="2xl" mb="6" textAlign="center">
             Welcome to <Text as="span" color="purple.500">Now Streaming!</Text>
           </Heading>
           
