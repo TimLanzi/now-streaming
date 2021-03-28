@@ -1,7 +1,10 @@
+import { useEffect } from "react";
 import Head from "next/head";
+import Router from "next/router";
 import { ChakraProvider, theme, CSSReset } from "@chakra-ui/react";
 import { ApolloProvider } from "@apollo/client";
 import { client } from "../lib/apollo/client";
+import * as ga from "../lib/ga";
 import '../styles/globals.scss'
 
 const customTheme = {
@@ -24,6 +27,19 @@ const customTheme = {
 }
 
 function MyApp({ Component, pageProps }) {
+  /* Google Analytics */
+  useEffect(() => {
+    const handleRouteChange = (url: string) => {
+      ga.pageview(url);
+    }
+
+    Router.events.on("routeChangeComplete", handleRouteChange);
+
+    return () => {
+      Router.events.off("routeChangeComplete", handleRouteChange);
+    }
+  }, []);
+
   return (
     <>
       <Head>
