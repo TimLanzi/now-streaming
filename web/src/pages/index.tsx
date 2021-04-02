@@ -1,4 +1,5 @@
 import { FormEvent, useEffect, useState } from "react";
+import Head from "next/head";
 import { useRouter } from "next/router";
 import { Heading, Text, Box, Input, Progress } from "@chakra-ui/react"
 import Layout from '../components/Layout';
@@ -54,6 +55,9 @@ export default function HomePage() {
 
   return (
     <Layout>
+      <Head>
+        <title>Now Streaming</title>
+      </Head>
       <Box
         minH={{ base: "40vh", md: "70vh"}}
         p="0 0.5rem"

@@ -1,5 +1,6 @@
 import { CircularProgress, Box } from "@chakra-ui/react";
 import { useRouter } from "next/router";
+import Head from "next/head";
 import Layout from "../../components/Layout";
 import ResultGrid from "../../components/ResultGrid";
 import SearchFrame from "../../components/SearchFrame";
@@ -12,6 +13,9 @@ export default function MovieSearchPage() {
 
   return (
     <Layout>
+      <Head>
+        <title>Movie Search</title>
+      </Head>
       <SearchFrame movieResults={data?.movieSearch.total_results} tvResults={data?.tvShowSearch.total_results}>
         { loading
           ? <Box justifyContent="center">
