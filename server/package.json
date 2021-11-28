@@ -9,6 +9,9 @@
     "build": "tsc",
     "start": "node build/server.js"
   },
+  "engines": {
+    "node": "14.x"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
