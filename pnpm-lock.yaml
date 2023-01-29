@@ -1,7 +1,6 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@headlessui/react': ^1.7.8
   '@tanstack/react-query': ^4.20.0
   '@trpc/client': ^10.8.1
   '@trpc/next': ^10.8.1
@@ -32,7 +31,6 @@ specifiers:
   zod: ^3.20.2
 
 dependencies:
-  '@headlessui/react': registry.npmjs.org/@headlessui/react/1.7.8_biqbaboplfbrettd7655fr4n2y
   '@tanstack/react-query': registry.npmjs.org/@tanstack/react-query/4.23.0_biqbaboplfbrettd7655fr4n2y
   '@trpc/client': registry.npmjs.org/@trpc/client/10.9.0_@trpc+server@10.9.0
   '@trpc/next': registry.npmjs.org/@trpc/next/10.9.0_agcdofckp5bsojf5gpkxjg6zzq
@@ -270,21 +268,6 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
-
-  registry.npmjs.org/@headlessui/react/1.7.8_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-zcwb0kd7L05hxmoAMIioEaOn235Dg0fUO+iGbLPgLVSjzl/l39V6DTpC2Df49PE5aG5/f5q0PZ9ZHZ78ENNV+A==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@headlessui/react/-/react-1.7.8.tgz}
-    id: registry.npmjs.org/@headlessui/react/1.7.8
-    name: '@headlessui/react'
-    version: 1.7.8
-    engines: {node: '>=10'}
-    peerDependencies:
-      react: ^16 || ^17 || ^18
-      react-dom: ^16 || ^17 || ^18
-    dependencies:
-      client-only: registry.npmjs.org/client-only/0.0.1
-      react: registry.npmjs.org/react/18.2.0
-      react-dom: registry.npmjs.org/react-dom/18.2.0_react@18.2.0
-    dev: false
 
   registry.npmjs.org/@humanwhocodes/config-array/0.11.8:
     resolution: {integrity: sha512-UybHIJzJnR5Qc/MsD9Kr+RpO2h+/P1GhOwdiLPXK5TWk5sgTdu88bTD9UP+CKbPPh5Rni1u0GjAdYQLemG8g+g==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@humanwhocodes/config-array/-/config-array-0.11.8.tgz}
