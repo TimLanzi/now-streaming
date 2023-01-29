@@ -17,7 +17,7 @@ const Navbar = () => {
           </Link>
         {/* </div> */}
 
-        { router.pathname !== '/' && (
+        { !['/', '/search'].includes(router.pathname) && (
           <SearchBar color='inverted' />
         )}
       </div>

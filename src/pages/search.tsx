@@ -7,6 +7,7 @@ import { LoadingSpinner } from '../components/LoadingSpinner'
 import { Pagination } from '../ui/Pagination'
 import Link from 'next/link'
 import { Attributions } from '../components/Attributions'
+import { SearchBar } from '../components/SearchBar'
 
 const SearchPage = () => {
   const router = useRouter();
@@ -31,6 +32,10 @@ const SearchPage = () => {
 
         { !!data && (
           <>
+            <div className='mb-5'>
+              <SearchBar width='full' />
+            </div>
+
             <div className='flex justify-between items-center text-lg text-gray-500 mb-5'>
               <span>
                 {data.total_results} results
@@ -41,8 +46,6 @@ const SearchPage = () => {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-              
-
               { data?.results.map((item) => (
                 <Link key={item.id} href={`/${item.media_type}/${item.id}`}>
                   <PosterCard
