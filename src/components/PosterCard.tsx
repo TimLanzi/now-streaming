@@ -3,7 +3,6 @@ import dayjs from 'dayjs';
 import { Film, Tv } from "lucide-react";
 
 type Props = {
-  id: number;
   type: 'movie' | 'tv';
   title: string;
   rating?: number;
@@ -12,7 +11,6 @@ type Props = {
 }
 
 export const PosterCard: React.FC<Props> = ({
-  id,
   type,
   title,
   rating,

@@ -18,8 +18,8 @@ const SearchPage = () => {
   });
 
   const onPageChange = (page: number) => {
-    const url = `?query=${router.query.query}&page=${page}`;
-    router.push(url);
+    const url = `?query=${router.query.query as string}&page=${page}`;
+    void router.push(url);
   }
 
   return (
@@ -44,9 +44,8 @@ const SearchPage = () => {
               
 
               { data?.results.map((item) => (
-                <Link href={`/${item.media_type}/${item.id}`}>
+                <Link key={item.id} href={`/${item.media_type}/${item.id}`}>
                   <PosterCard
-                    id={item.id}
                     type={item.media_type}
                     title={item.media_type === 'movie' ? item.title : item.name}
                     poster_url={item.poster_path ? `https://www.themoviedb.org/t/p/w300_and_h450_bestv2${item.poster_path}` : null}

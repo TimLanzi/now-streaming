@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router';
-import { cva, VariantProps } from 'class-variance-authority'
+import { cva, type VariantProps } from 'class-variance-authority'
 
 const styles = cva('border px-4 h-12 rounded-lg', {
   variants: {
@@ -39,7 +39,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
 
-    router.push(`/search?query=${query}`);
+    void router.push(`/search?query=${query}`);
   }
 
   return (

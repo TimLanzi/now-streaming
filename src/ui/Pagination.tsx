@@ -1,6 +1,6 @@
 import React from 'react'
 import { cx } from 'class-variance-authority';
-import { DOTS, PaginationOptions, usePagination } from '../hooks/usePagination'
+import { DOTS, type PaginationOptions, usePagination } from '../hooks/usePagination'
 import { ChevronLeftIcon, ChevronRightIcon } from 'lucide-react';
 
 type PaginationProps = PaginationOptions & {
@@ -30,7 +30,8 @@ export const Pagination: React.FC<PaginationProps> = ({
     onPageChange(currentPage - 1);
   }
 
-  let lastPage = paginationRange[paginationRange.length - 1];
+  const lastPage = paginationRange[paginationRange.length - 1];
+
   return (
     <div>
       <ul className='flex space-x-1'>

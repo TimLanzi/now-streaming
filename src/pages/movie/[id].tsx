@@ -1,7 +1,5 @@
-import dayjs from 'dayjs';
-import { Film } from 'lucide-react';
-import { useRouter } from 'next/router'
 import React, { useMemo } from 'react'
+import { useRouter } from 'next/router'
 import { LoadingSpinner } from '../../components/LoadingSpinner';
 import { ResultDescription } from '../../components/ResultDescription';
 import { ResultHeader } from '../../components/ResultHeader';

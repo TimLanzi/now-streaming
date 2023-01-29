@@ -9,7 +9,6 @@
     "start": "next start"
   },
   "dependencies": {
-    "@headlessui/react": "^1.7.8",
     "@tanstack/react-query": "^4.20.0",
     "@trpc/client": "^10.8.1",
     "@trpc/next": "^10.8.1",

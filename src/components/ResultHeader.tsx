@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from 'react'
+import React, { type PropsWithChildren } from 'react'
 import dayjs from 'dayjs';
 import { Film, Tv } from 'lucide-react';
 import { api } from '../utils/api';
@@ -73,6 +73,7 @@ export const ResultHeader: React.FC<Props> = ({
               <div className='grid grid-cols-4 gap-4'>
                 { providers?.map((item) => (
                   <img
+                    key={item.provider_id}
                     className='rounded w-12 h-12'
                     src={`https://www.themoviedb.org/t/p/original${item.logo_path}`}
                     alt={item.provider_name}

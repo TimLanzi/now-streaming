@@ -86,3 +86,10 @@ export type WatchProviderOptions = {
   flatrate: WatchProvider[];
   ads: WatchProvider[];
 }
+
+export type WatchProviderResults = {
+  id: number;
+  results: {
+    [key: string]: WatchProviderOptions;
+  };
+}
