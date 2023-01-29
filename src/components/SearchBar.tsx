@@ -6,7 +6,7 @@ const styles = cva('border px-4 h-12 rounded-lg', {
   variants: {
     width: {
       full: 'w-full',
-      default: 'w-[450px]'
+      default: 'w-full sm:w-[450px]'
     },
     color: {
       inverted: 'bg-transparent border-gray-500 placeholder-gray-300',
