@@ -27,7 +27,7 @@ export const ResultHeader: React.FC<Props> = ({
   });
 
   return (
-    <div className="pt-36 bg-gray-900 p-8">
+    <div className="pt-48 md:pt-36 bg-gray-900 p-8">
       <div className="container mx-auto">
         <div className="flex flex-col sm:flex-row items-center justify-between">
           <h1 className="text-white font-bold text-4xl">
